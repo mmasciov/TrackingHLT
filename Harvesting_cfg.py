@@ -34,7 +34,7 @@ process.source = cms.Source("DQMRootSource",
 
 # Other statements
 from Configuration.AlCa.GlobalTag import GlobalTag
-process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_mc', '')
+process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_mc_GRun', '')
 
 # Path and EndPath definitions
 process.edmtome_step = cms.Path(process.EDMtoME)
