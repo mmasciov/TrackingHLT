@@ -6811,6 +6811,7 @@ process.trackerTopology = cms.ESProducer( "TrackerTopologyEP",
   appendToDataLabel = cms.string( "" )
 )
 
+### Tracking @ HLT: here, commenting out default settings for FastTimerService. Settings are set up "manually" later in the configuration. Analogous results would be obtaining getting the configuration with option "--timing"
 #process.FastTimerService = cms.Service( "FastTimerService",
 #    dqmPath = cms.untracked.string( "HLT/TimerService" ),
 #    dqmModuleTimeRange = cms.untracked.double( 40.0 ),
@@ -6836,6 +6837,8 @@ process.trackerTopology = cms.ESProducer( "TrackerTopologyEP",
 #    printJobSummary = cms.untracked.bool( True ),
 #    enableDQMbyProcesses = cms.untracked.bool( True )
 #)
+###
+
 process.MessageLogger = cms.Service( "MessageLogger",
     suppressInfo = cms.untracked.vstring(  ),
     debugs = cms.untracked.PSet( 
@@ -8783,6 +8786,7 @@ process.FastTimerService.dqmModuleTimeResolution   =    1.
 # set the base DQM folder for the plots
 process.FastTimerService.dqmPath                   = 'HLT/TimerService'
 process.FastTimerService.enableDQMbyProcesses      = False
+###
 
 # avoid PrescaleService error due to missing HLT paths
 if 'PrescaleService' in process.__dict__:

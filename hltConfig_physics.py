@@ -7760,8 +7760,10 @@ process.hltSiStripRawToClustersFacility = cms.EDProducer( "SiStripClusterizerFro
       clusterChargeCut = cms.PSet(  refToPSet_ = cms.string( "HLTSiStripClusterChargeCutNone" ) ),
       MaxSequentialBad = cms.uint32( 1 )
     ),
+### Tracking @ HLT: for single-step validation, require to set onDemand to False; otherwise, artificial reduction of efficiency.
 #    onDemand = cms.bool( True ),
     onDemand = cms.bool( False ),
+###
     HybridZeroSuppressed = cms.bool( False ),
     Algorithms = cms.PSet( 
       CommonModeNoiseSubtractionMode = cms.string( "Median" ),
@@ -8746,7 +8748,7 @@ process.load("hlt_validation_cff")
 
 #process.HLTSchedule = cms.Schedule( *(process.HLTriggerFirstPath, process.MC_ReducedIterativeTracking_v12, process.HLTriggerFinalPath ))
 process.HLTSchedule = cms.Schedule( *(process.HLTriggerFirstPath, process.MC_ReducedIterativeTracking_v12, process.HLTriggerFinalPath, process.dqm, process.validation ))
-
+###
 
 process.source = cms.Source( "PoolSource",
     fileNames = cms.untracked.vstring(
